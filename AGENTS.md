@@ -1,0 +1,2 @@
+- Use [Convential Commit Messages](https://www.conventionalcommits.org/en/v1.0.0/)
+- Use typed Python 3.13.
