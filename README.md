@@ -1,28 +1,64 @@
 # img-squeeze
 
-A simple tool to resize images to a maximum dimension and save them as JPEG or PNG.
+A simple tool to resize images.
 
 ## Usage
 
-Install [uv](https://docs.astral.sh/uv/).
+First, install [uv](https://docs.astral.sh/uv/).
 
-Ephemeral usage:
+### Ephemeral Usage
+
+To run `img-squeeze` without installing it globally, use `uvx`:
+
+#### Show Help
 
 ```bash
-# Show help
 uvx --from git+https://github.com/seandlg/img-squeeze -- img-squeeze --help
-# Compress an image
+```
+
+```text
+usage: img-squeeze [-h] [-o OUTPUT_DIR] [--max-dim MAX_DIM] [--jpeg-quality [1-95]] [--png-compression [0-9]] FILE [FILE ...]
+
+A CLI tool to resize and compress JPEG/PNG images.
+
+positional arguments:
+  FILE                  One or more image files to process.
+
+options:
+  -h, --help            show this help message and exit
+  -o, --output-dir OUTPUT_DIR
+                        Directory to save processed images. (default: processed_images)
+  --max-dim MAX_DIM     Maximum width or height for resized images. (default: 1024)
+  --jpeg-quality [1-95]
+                        JPEG quality for compression (1-95). (default: 85)
+  --png-compression [0-9]
+                        PNG compression level (0=none, 9=max). (default: 6)
+```
+
+#### Compress an Image
+
+```bash
 uvx --from git+https://github.com/seandlg/img-squeeze -- img-squeeze img.jpg
 ```
 
-or install as a tool:
+```text
+Resizing img.jpg...
+Saved processed_images/img.jpg (JPEG quality: 85)
 
-```bash
-uv tool install git+https://github.com/seandlg/img-squeeze
+Processing complete. Output is in 'processed_images'.
 ```
 
-and use anywhere as `img-squeeze`.
+> [!TIP]
+> If you use `img-squeeze` a lot, install it as a tool:
+> ```bash
+> uv tool install git+https://github.com/seandlg/img-squeeze
+> ```
+> This enables running `img-squeeze` in the terminal.
 
 ## License
 
 MIT
+
+## Feature requests
+
+Please [open an issue](https://github.com/seandlg/img-squeeze/issues/new) if you have a feature request. I will add features as I need them.
